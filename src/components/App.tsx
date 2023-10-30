@@ -1,5 +1,6 @@
 import {ChangeEvent, useState} from "react";
 import {User} from "../entity";
+import {Input} from "./Input.tsx";
 
 export function App(): JSX.Element {
     const [user, setUser] = useState<User>(new User("id", {
@@ -12,9 +13,9 @@ export function App(): JSX.Element {
     }
 
     return <div>
-        <input name="name" value={user.name} onChange={onChange}/>
+        <Input<keyof User> name="name" value={user.name} onChange={onChange}/>
         <br/>
-        <input name="password" value={user.password} onChange={onChange}/>
+        <Input<keyof User> name="password" value={user.password} onChange={onChange}/>
         <br/>
         is name: {user.isName ? 'Yes' : 'no'}
     </div>
